@@ -2,10 +2,10 @@ package com.abdulazisujianlima.utils;
 
 public enum TestScenarios {
 
-    T1("User invalid login"),
-    T2("User valid login"),
-    T3("Dashboard user function"),
-    T4("Recruitment user function");
+    T1("User valid login"),
+    T2("User search first product"),
+    T3("User search second product"),
+    T4("User checkout in cart");
 
 
     private String testName;
