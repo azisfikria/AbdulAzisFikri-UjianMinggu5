@@ -14,6 +14,8 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//a[@class='woocommerce-store-notice__dismiss-link']")
+    WebElement clickDismiss;
     @FindBy(id = "username")
     WebElement inpUsername;
 
@@ -26,11 +28,14 @@ public class LoginPage {
     @FindBy(xpath = "//a[.='My Account']")
     WebElement btnMyAccount;
 
-    @FindBy(xpath = "//h1[@class='page-title']")
+    @FindBy(xpath = "//*[@id=\"post-8\"]/div/div/div/p[1]/strong[1]")
     WebElement txtMyAccount;
 
-    public void clickMyAccountPage(){
+    @FindBy(xpath = "//strong[normalize-space()='ERROR']")
+    WebElement txtMessageError;
 
+    public void login(){
+        clickDismiss.click();
         btnMyAccount.click();
     }
     public void loginForm(String username, String password){
@@ -38,13 +43,16 @@ public class LoginPage {
         this.inpPassword.sendKeys(password);
     }
     public void clickLoginBtn(){
-
         btnLogin.click();
     }
 
     public String getTxtMyAccount(){
 
         return txtMyAccount.getText();
+    }
+
+    public String getTxtMessageError(){
+        return txtMessageError.getText();
     }
 }
 
